@@ -96,7 +96,7 @@ const Login = () => {
         <div className="flex justify-center">
         <p className="text-sm mr-2">&copy; {new Date().getFullYear()} chatWise</p>
             <a
-                href="https://github.com/your-profile"
+                href="https://github.com/poorvir99/chatWise"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-white text-sm hover:text-gray-400 transition"
