@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+/* Hide scrollbar for ChatList */
+.custom-scrollbar::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+  .custom-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .scrollbar-hide {
+    scrollbar-width: none; /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+  
+
+  body {
+    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+  }
+
+
+  /* Scrollbar track */
+::-webkit-scrollbar {
+  width: 8px; /* Adjust width */
+}
+
+/* Scrollbar handle */
+::-webkit-scrollbar-thumb {
+  background: #f0f2f5; /* Purple color */
+  border-radius: 4px; /* Rounded edges */
+}
+
+/* Scrollbar track background */
+::-webkit-scrollbar-track {
+  background: #612DD1; /* Light gray */
+}

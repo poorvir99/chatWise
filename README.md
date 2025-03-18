@@ -1,4 +1,4 @@
-# ChatWise 🗨️💬
+# ChatWise
 
 **ChatWise** is a real-time chat application built with **React, Tailwind CSS, and Firebase**, designed for seamless one-on-one messaging.
 
@@ -18,6 +18,11 @@
 - **Backend:** Firebase (Firestore, Authentication, Storage)
 - **Real-Time Updates:** WebSockets & Firestore
 - **Tools:** Vite, VS Code
+
+## 🏗️ Future Enhancements
+
+- Group Chats
+- Message Reactions
 
 ### 📌 Installation & Setup
 
