@@ -104,8 +104,22 @@ const Header = ({ onSearch }) => {
       >
         <FiLogOut />
       </button>
+     {/* Error Modal */}
+     {error && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div className="absolute inset-0 bg-black/30 backdrop-blur-md"></div>
+          <div className="relative bg-white px-6 py-4 rounded-lg shadow-lg text-center z-10">
+            <p className="text-red-600 font-semibold">{error}</p>
+            <button
+              onClick={() => setError("")}
+              className="mt-3 px-4 py-2 bg-[#6E00FF] text-white rounded-lg hover:bg-[#8400ff] transition"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
-
 export default Header;
