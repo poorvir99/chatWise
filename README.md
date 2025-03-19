@@ -32,3 +32,7 @@ cd chatwise
 npm install
 npm run dev
 ```
+
+### 📌 Demo Link
+
+https://chatwise2025.netlify.app/
