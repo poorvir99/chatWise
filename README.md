@@ -5,8 +5,8 @@
 ## 🚀 Features
 
 ✅ User Authentication (Firebase Auth)  
-✅ One-on-One Chat
-✅ Search Users by Email  
+✅ One-on-One Chat and
+Search Users by Email  
 ✅ Real-Time Messaging (Firestore & WebSockets)  
 ✅ Emojis  
 ✅ CRUD Operations for Messages  
