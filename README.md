@@ -35,4 +35,4 @@ npm run dev
 
 ### 📌 Demo Link
 
-https://chatwise2025.netlify.app/
+https://chatwiseapp.netlify.app/
