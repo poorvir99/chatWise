@@ -4,6 +4,7 @@ import { collection, query, where, getDocs, addDoc } from "firebase/firestore";
 import { auth, db } from "../firebase/firebase";
 import { useNavigate } from "react-router-dom";
 import { FiSearch, FiLogOut } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const Header = ({ onSearch }) => {
   const [searchEmail, setSearchEmail] = useState("");
@@ -71,9 +72,11 @@ const Header = ({ onSearch }) => {
   return (
     <div className="flex items-center justify-between px-4 py-2 bg-white shadow-md space-x-2">
       {/* Left - Logo */}
-      <h1 className="text-lg sm:text-2xl font-semibold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent cursor-pointer whitespace-nowrap">
-        ChatWise
-      </h1>
+      <Link to="/chat">
+        <h1 className="text-lg sm:text-2xl font-semibold bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 bg-clip-text text-transparent cursor-pointer whitespace-nowrap">
+            ChatWise
+        </h1>
+        </Link>
 
       {/* Middle - Search Input */}
       <div className="flex flex-1 min-w-0 justify-center">

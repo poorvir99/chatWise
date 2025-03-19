@@ -3,9 +3,10 @@ import { collection, addDoc, orderBy, query, onSnapshot, serverTimestamp, update
 import { auth, db } from "../firebase/firebase.js";
 import EmojiPicker from "emoji-picker-react";
 import { BsEmojiSmile, BsSend, BsCheck, BsCheckAll } from "react-icons/bs";
+import { FiArrowLeft } from "react-icons/fi";
 import moment from "moment";
 
-const ChatWindow = ({ selectedChat }) => {
+const ChatWindow = ({ selectedChat, onBack }) => {
   const [messages, setMessages] = useState([]);
   const [message, setMessage] = useState("");
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
@@ -32,15 +33,16 @@ const ChatWindow = ({ selectedChat }) => {
 
     return () => unsubscribe();
   }, [selectedChat]);
+  
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   useEffect(() => {
     const lastMessage = messages[messages.length - 1];
-  if (lastMessage?.sender === auth.currentUser.email) {
-    scrollToBottom();
-  }
+    if (lastMessage?.sender === auth.currentUser.email) {
+      scrollToBottom();
+    }
   }, [messages]);
 
   const sendMessage = async () => {
@@ -61,6 +63,17 @@ const ChatWindow = ({ selectedChat }) => {
 
   return (
     <div className="flex flex-col w-full h-screen bg-[#eae6df]">
+      {/* Back Button (Visible on Mobile) */}
+      <div className="sm:hidden flex items-center p-3 bg-gray-200 shadow-md">
+        <button
+          onClick={onBack}
+          className="flex items-center space-x-2 text-gray-700 font-medium hover:text-black"
+        >
+          <FiArrowLeft className="text-xl" />
+          <span>Back to Chats</span>
+        </button>
+      </div>
+
       <div className="p-4 bg-[#f0f2f5] shadow-sm flex items-center justify-between sticky top-0 z-10">
         <h2 className="text-lg font-semibold text-gray-800">
           {selectedChat?.users.find(email => email !== auth.currentUser.email) || "Chat"}
@@ -102,7 +115,7 @@ const ChatWindow = ({ selectedChat }) => {
                     )}
                     {isSender && (
                       <span>
-                       {msg.status === "read" ? <BsCheckAll className="text-blue-500" /> : <BsCheck />}
+                        {msg.status === "read" ? <BsCheckAll className="text-blue-500" /> : <BsCheck />}
                       </span>
                     )}
                   </div>
