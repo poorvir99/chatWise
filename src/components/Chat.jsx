@@ -37,16 +37,20 @@ const Chat = () => {
       <Header onSearch={handleSearchChat} />
 
       {/* Chat Container */}
-      <div className="flex flex-1 overflow-hidden">
-        {/* Left Sidebar - Chat List (30%) */}
-        <div className="w-[30%] min-w-[280px] bg-white shadow-sm overflow-y-auto custom-scrollbar">
+      <div className="flex flex-1 overflow-hidden flex-col sm:flex-row">
+        {/* Left Sidebar - Chat List (Hidden on mobile when a chat is selected) */}
+        <div
+          className={`${
+            selectedChat ? "hidden sm:flex" : "flex"
+          } w-full sm:w-[30%] min-w-[280px] bg-white shadow-sm overflow-y-auto custom-scrollbar`}
+        >
           <ChatList chats={chatList} onSelectChat={setSelectedChat} selectedChat={selectedChat} />
         </div>
 
-        {/* Right Side - Chat Window (70%) */}
-        <div className="w-[70%] flex flex-col bg-white overflow-y-auto scroll-smooth custom-scrollbar">
+        {/* Right Side - Chat Window (Full width on mobile) */}
+        <div className="w-full sm:w-[70%] flex flex-col bg-white overflow-y-auto scroll-smooth custom-scrollbar">
           {selectedChat ? (
-            <ChatWindow selectedChat={selectedChat} />
+            <ChatWindow selectedChat={selectedChat} onBack={() => setSelectedChat(null)} />
           ) : (
             <div className="flex items-center justify-center h-full text-gray-500">
               Select a chat to start messaging
@@ -55,7 +59,7 @@ const Chat = () => {
         </div>
       </div>
       {/* Footer */}
-      <Footer/>
+      <Footer />
     </div>
   );
 };
