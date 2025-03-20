@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 
 const Header = ({ onSearch }) => {
   const [searchEmail, setSearchEmail] = useState("");
+//   const [searchUsername, setSearchUsername] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -17,11 +18,12 @@ const Header = ({ onSearch }) => {
       setError("Please enter an email.");
       return;
     }
+
     if (searchEmail === auth.currentUser.email) {
       setError("You cannot search for yourself.");
       return;
     }
-
+   
     setError("");
     setLoading(true);
 

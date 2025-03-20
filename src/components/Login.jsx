@@ -10,7 +10,7 @@ import {
 import { auth, db } from "../firebase/firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { BsEye, BsEyeSlash } from "react-icons/bs"; // Import icons for show/hide
-import Footer from "./Footer";
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -22,12 +22,15 @@ const Login = () => {
   const [forgotPassword, setForgotPassword] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [showPassword, setShowPassword] = useState(false); // Toggle password visibility
+
+
   
   const navigate = useNavigate();
 
    // Email and Password Validation
    const validateEmail = (email) => /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
    const validatePassword = (password) => /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(password);
+  
 
   const handleAuth = async (e) => {
     e.preventDefault();
@@ -43,6 +46,8 @@ const Login = () => {
       setError("Password must be at least 8 characters long, include 1 uppercase, 1 lowercase, 1 digit, and 1 special character.");
       return;
     }
+    
+      
 
     try {
       if (isSignUp) {
